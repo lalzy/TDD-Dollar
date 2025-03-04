@@ -5,7 +5,12 @@ public class Dollar{
         this.Amount = amount;
     }
 
-    public void times(int multiplier){
-        this.Amount *= multiplier;
+    public Dollar Times(int multiplier){
+        return new Dollar(Amount * multiplier);
+    }
+
+    public bool Equals(Object obj){
+        Dollar dollar = (Dollar) obj;
+        return Amount == dollar.Amount;
     }
 }

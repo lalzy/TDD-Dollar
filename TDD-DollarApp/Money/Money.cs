@@ -1,25 +1,25 @@
-public abstract class Money{    
+public class Money{    
     public int Amount;
     protected string _currency;
 
     public Money(int amount, string currency){
-        this.Amount = amount;
         this._currency = currency;
+        this.Amount = amount;
     }
 
     public bool Equals(Object obj){
         Money money = (Money) obj;
         return Amount == money.Amount 
-            && GetType().Equals(money.GetType());
+            && Currency().Equals(money._currency);
     }
 
     public static Dollar Dollar(int amount){
-        return new Dollar(amount, "USD");
+        return new Dollar(amount);
     }
 
     public static Franc Franc(int amount){
-        return new Franc(amount, "CHF");
+        return new Franc(amount);
     }
 
-    public abstract string Currency();
+    public string Currency(){return _currency;}
 }

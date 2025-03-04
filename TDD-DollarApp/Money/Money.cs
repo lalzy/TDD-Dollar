@@ -13,12 +13,16 @@ public class Money{
             && Currency().Equals(money._currency);
     }
 
-    public static Dollar Dollar(int amount){
-        return new Dollar(amount);
+    public static Money Dollar(int amount){
+        return new Money(amount, "USD");
     }
 
-    public static Franc Franc(int amount){
-        return new Franc(amount);
+    public static Money Franc(int amount){
+        return new Money(amount, "CHF");
+    }
+
+    public Money Times(int multiplier){
+        return new Money(Amount * multiplier, _currency);
     }
 
     public string Currency(){return _currency;}

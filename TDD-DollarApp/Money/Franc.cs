@@ -1,10 +1,12 @@
 public class Franc : Money{
-    public Franc(int amount){
-        this.Amount = amount;
-    }
+    public Franc(int amount, string currency) :base(amount, currency){}
 
     public Money Times(int multiplier){
-        return new Franc(Amount * multiplier);
+        return Money.Franc(Amount * multiplier);
+    }
+
+    public override string Currency(){
+        return _currency;
     }
 
 }

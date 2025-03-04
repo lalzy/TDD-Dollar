@@ -1,5 +1,4 @@
-public class Dollar{
-    public int Amount;
+public class Dollar : Money{
 
     public Dollar(int amount){
         this.Amount = amount;
@@ -7,10 +6,5 @@ public class Dollar{
 
     public Dollar Times(int multiplier){
         return new Dollar(Amount * multiplier);
-    }
-
-    public bool Equals(Object obj){
-        Dollar dollar = (Dollar) obj;
-        return Amount == dollar.Amount;
     }
 }

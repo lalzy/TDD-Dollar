@@ -3,19 +3,26 @@ namespace TDD_DollarApp.tests;
 public class UnitTest1
 {
     [Fact]
-    public void TestMultiplication()
+    public void TestDollarMultiplication()
     {
         Dollar five = new Dollar(5);
-        Dollar product = five.Times(2);
-        Assert.Equal(10, product.Amount);
-
-        product = five.Times(3);
-        Assert.Equal(15, product.Amount);
+        Assert.Equivalent(new Dollar(10), five.Times(2));
+        Assert.Equivalent(new Dollar(15), five.Times(3));
     }
 
     [Fact]
     public void TestEquality(){
         Assert.True(new Dollar(5).Equals(new Dollar(5)));
         Assert.False(new Dollar(5).Equals(new Dollar(6)));
+        Assert.True(new Franc(5).Equals(new Franc(5)));
+        Assert.False(new Franc(5).Equals(new Franc(6)));
+        Assert.False(new Franc(5).Equals(new Dollar(5)));
+    }
+    [Fact]
+    public void TestFrancMultiplication()
+    {
+        Franc five = new Franc(5);
+        Assert.Equivalent(new Franc(10), five.Times(2));
+        Assert.Equivalent(new Franc(15), five.Times(3));
     }
 }

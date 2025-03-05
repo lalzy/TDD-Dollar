@@ -1,3 +1,5 @@
+using System.ComponentModel;
+
 namespace TDD_DollarApp.tests;
 
 public class UnitTest1
@@ -28,5 +30,14 @@ public class UnitTest1
     public void TestCurrency(){
         Assert.Equal("USD", Money.Dollar(1).Currency());
         Assert.Equal("CHF", Money.Franc(1).Currency());
+    }
+
+    [Fact]
+    public void TestSimpleAddition(){
+        Money five = Money.Dollar(5);
+        Expression sum = five.Plus(five);
+        Bank bank = new Bank(); 
+        Money reduced = bank.reduce(sum, "usd");
+        Assert.Equivalent(Money.Dollar(10), reduced);
     }
 }

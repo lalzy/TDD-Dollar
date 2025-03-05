@@ -1,4 +1,4 @@
-public class Money{    
+public class Money : Expression{    
     public int Amount;
     protected string _currency;
 
@@ -26,4 +26,10 @@ public class Money{
     }
 
     public string Currency(){return _currency;}
+
+    public Expression Plus(Money addend){
+        return new Money(Amount + addend.Amount, _currency);
+    }
 }
+
+public interface Expression {}
